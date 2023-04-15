@@ -39,9 +39,34 @@ ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
 ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
 ThunderImageUI.Image = "http://www.roblox.com/asset/?id=9906600154"
 
-  
+
+if game:GetService("CoreGui"):FindFirstChild("THUNDERZHUB") then
+    game:GetService("CoreGui"):FindFirstChild("THUNDERZHUB"):Destroy()
+end
 
 repeat wait(1) until game:IsLoaded()
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local HttpService = game:GetService("HttpService")
+local pfp
+local user
+local tag
+local userinfo = {}
+
+pcall(function()
+    userinfo = HttpService:JSONDecode(readfile(""));
+ end)
+ 
+ pfp = userinfo["pfp"] or "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
+ user =  userinfo["user"] or game.Players.LocalPlayer.Name
+ tag = userinfo["tag"] or tostring(math.random(1,10))
+ 
+ local function SaveInfo()
+    userinfo["pfp"] = pfp
+    userinfo["user"] = user
+    userinfo["tag"] = tag
+    writefile("", HttpService:JSONEncode(userinfo));
+ end
+
 
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
@@ -100,6 +125,7 @@ UserInputService.InputChanged:Connect(
 end
 
 local Update = {}
+local pfp = "https://www.roblox.com/headshot-thumbnail/image?userId=".. game.Players.LocalPlayer.UserId .."&width=420&height=420&format=png"
 
 function Update:Window(text,logo,keybind)
 local osfunc = {}
@@ -153,30 +179,7 @@ local TCNR = Instance.new("UICorner")
 TCNR.Name = "TCNR"
 TCNR.Parent = Top
 TCNR.CornerRadius = UDim.new(0,5) 
---[[
-local Logo = Instance.new("ImageLabel")
-	Logo.Name = "Logo"
-	Logo.Parent = Top
-	Logo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Logo.BackgroundTransparency = 1.000
-	Logo.Position = UDim2.new(0, 10, 0, 0)
-	Logo.Size = UDim2.new(0, 32, 0, 32)
-	Logo.Image = "rbxassetid://9906600154"
 
-local Name = Instance.new("TextLabel")
-Name.Parent = Top
-Name.BackgroundColor3 = Color3.fromRGB(224,255,255)
-Name.BackgroundTransparency = 1.000
-Name.Position = UDim2.new( 0.0827338099, 0, 0, 0)
-Name.Size = UDim2.new(0, 81, 0, 27)
-Name.Font = Enum.Font.Cartoon
-Name.Text = "Skull Hub"
-Name.TextColor3 = Color3.fromRGB(255,255,255)
-Name.TextScaled = true
-Name.TextSize = 14.000
-Name.TextWrapped = true
-
-]]--
 local ServerTime = Instance.new("TextLabel")
 ServerTime.Name = "ServerTime"
 ServerTime.Parent = Top
@@ -216,6 +219,83 @@ spawn(function()
  end
  end)
  
+ local Ping = Instance.new("TextLabel")
+	Ping.Name = "Ping"
+	Ping.Parent = Top
+	Ping.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Ping.BackgroundTransparency = 1.000
+	Ping.Position = UDim2.new(0.28, 0,0.074, 0)
+	Ping.Size = UDim2.new(0, 225, 0, 25)
+	Ping.Font = Enum.Font.GothamSemibold
+	Ping.Text = "N/A"
+	Ping.TextColor3 = Color3.fromRGB(255,255,255)
+	Ping.TextSize = 11.000
+	Ping.TextXAlignment = Enum.TextXAlignment.Left
+
+	local Fps = Instance.new("TextLabel")
+	Fps.Name = "Fps"
+	Fps.Parent = Top
+	Fps.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Fps.BackgroundTransparency = 1.000
+	Fps.Position = UDim2.new(0.55, 0,0.074, 0)
+	Fps.Size = UDim2.new(0, 225, 0, 25)
+	Fps.Font = Enum.Font.GothamSemibold
+	Fps.Text = "N/A"
+	Fps.TextColor3 = Color3.fromRGB(255,255,255)
+	Fps.TextSize = 11.000
+	Fps.TextXAlignment = Enum.TextXAlignment.Left
+
+local Fps = Instance.new('LocalScript', Fps)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(frame)
+Fps.Parent.Text = ("[FPS] : "..math.round(1/frame)) 
+end)
+
+local Ping = Instance.new('LocalScript', Ping)
+local RunService = game:GetService("RunService")
+RunService.RenderStepped:Connect(function(ping) 
+Ping.Parent.Text = ("[Ping] : " ..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString(math.round(2/ping)))
+end)
+
+ local User = Instance.new("Frame")
+    User.Name = "User"
+    User.Parent = Top
+    User.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    User.BackgroundTransparency = 1.000
+    User.Position = UDim2.new(0, 0,0, 25)
+    User.Size = UDim2.new(0, 125, 0, 40)
+    
+    local UserText = Instance.new("TextLabel")
+    UserText.Name = "UserText"
+    UserText.Parent = User
+    UserText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    UserText.BackgroundTransparency = 1.000
+    UserText.Position = UDim2.new(0.4, 0,0, -17)
+	UserText.TextColor3 = Color3.fromRGB(255, 255, 255)
+    UserText.Size = UDim2.new(0, 80, 0, 20)
+    UserText.Font = Enum.Font.GothamSemibold
+    UserText.Text = tostring(game.Players.LocalPlayer.Name)
+    UserText.TextScaled = true
+    UserText.TextSize = 17.000
+    UserText.TextWrapped = true
+    UserText.TextXAlignment = Enum.TextXAlignment.Left
+    
+    local UITextSizeConstraint = Instance.new("UITextSizeConstraint")
+    UITextSizeConstraint.Parent = UserText
+    UITextSizeConstraint.MaxTextSize = 17
+    
+    local UserImage = Instance.new("ImageLabel")
+    UserImage.Name = "UserImage"
+    UserImage.Parent = User
+    UserImage.BackgroundTransparency = 0
+    UserImage.BackgroundColor3 = Color3.fromRGB(225, 225, 225)
+    UserImage.Position = UDim2.new(0, 10, 0, -15)
+    UserImage.Size = UDim2.new(0, 25, 0, 25)
+    UserImage.Image = "https://www.roblox.com/headshot-thumbnail/image?userId="..game.Players.LocalPlayer.UserId.."&width=420&height=420&format=png"
+    local UserImageCorner = Instance.new("UICorner")
+   UserImageCorner.CornerRadius = UDim.new(0, 100)
+    UserImageCorner.Name = "UserImageCorner"
+    UserImageCorner.Parent = UserImage
 
 local Logo = Instance.new("ImageLabel")
 	Logo.Name = "Logo"
@@ -2013,5 +2093,4 @@ return main
 end
 return uitab
 end
-
 return Update
