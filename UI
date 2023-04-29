@@ -733,7 +733,7 @@ function main:Button(text,logo, callback)
 
     TextBtn.Name = "TextBtn"
     TextBtn.Parent = Button
-    TextBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    TextBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     TextBtn.Position = UDim2.new(0, 1, 0, 1)
     TextBtn.Size = UDim2.new(0, 385, 0, 29)
     TextBtn.AutoButtonColor = false
@@ -769,7 +769,7 @@ function main:Button(text,logo, callback)
 
     Black.Name = "Black"
     Black.Parent = Button
-    Black.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Black.BackgroundColor3 = Color3.fromRGB(0, 225, 225)
     Black.BackgroundTransparency = 1.000
     Black.BorderSizePixel = 0
     Black.Position = UDim2.new(0, 1, 0, 1)
