@@ -725,7 +725,7 @@ function main:Button(text,logo, callback)
 
     Button.Name = "Button"
     Button.Parent = MainFramePage
-    Button.BackgroundColor3 = _G.Color
+    Button.BackgroundColor3 = Color3.fromRGB(0,225,225)
     Button.Size = UDim2.new(0, 387, 0, 31)
 
     UICorner.CornerRadius = UDim.new(0, 5)
