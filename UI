@@ -733,7 +733,7 @@ function main:AddButton(text,logo, callback)
 
     TextBtn.Name = "TextBtn"
     TextBtn.Parent = Button
-    TextBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    TextBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     TextBtn.Position = UDim2.new(0, 1, 0, 1)
     TextBtn.Size = UDim2.new(0, 385, 0, 29)
     TextBtn.AutoButtonColor = false
@@ -744,7 +744,7 @@ function main:AddButton(text,logo, callback)
 
     ImageButton.Name = "ImageButton"
     ImageButton.Parent = Button
-    ImageButton.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    ImageButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
     ImageButton.BackgroundTransparency = 1.000
     ImageButton.BorderSizePixel = 0
     ImageButton.Position = UDim2.new(0, 350, 0, 6)
@@ -757,7 +757,7 @@ function main:AddButton(text,logo, callback)
 
     Space.Name = "Space"
     Space.Parent = Button
-    Space.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    Space.BackgroundColor3 = Color3.fromRGB(255,255,255)
     Space.BackgroundTransparency = 1.000
     Space.Position = UDim2.new(0, 330, 0, 0)
     Space.Size = UDim2.new(0, 15, 0, 30)
@@ -925,7 +925,7 @@ function main:Toggle(TogInfo, logo ,default, callback)
     -- Prop --
     CheckFrame.Name = TogInfo or "CheckFrame"
     CheckFrame.Parent = MainFramePage
-    CheckFrame.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    CheckFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     CheckFrame.BackgroundTransparency = 1.000
     CheckFrame.BorderSizePixel = 0
     CheckFrame.Size = UDim2.new(0, 387, 0, 30)
@@ -952,7 +952,7 @@ function main:Toggle(TogInfo, logo ,default, callback)
 
     ImageLabel.Name = "ImageLabel"
     ImageLabel.Parent = CheckFrame2
-    ImageLabel.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    ImageLabel.BackgroundColor3 = Color3.fromRGB(255,255,255)
     ImageLabel.BackgroundTransparency = 1.000
     ImageLabel.BorderSizePixel = 0
     ImageLabel.Position = UDim2.new(0, 5, 0, 6)
@@ -962,7 +962,7 @@ function main:Toggle(TogInfo, logo ,default, callback)
 
     Space.Name = "Space"
     Space.Parent = CheckFrame2
-    Space.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    Space.BackgroundColor3 = Color3.fromRGB(255,255,255)
     Space.BackgroundTransparency = 1.000
     Space.Position = UDim2.new(0, 30, 0, 0)
     Space.Size = UDim2.new(0, 15, 0, 30)
@@ -974,7 +974,7 @@ function main:Toggle(TogInfo, logo ,default, callback)
 
     Title.Name = "Title"
     Title.Parent = CheckFrame2
-    Title.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
+    Title.BackgroundColor3 = Color3.fromRGB(255,255,255)
     Title.BackgroundTransparency = 1.000
     Title.Position = UDim2.new(0, 50, 0, 0)
     Title.Size = UDim2.new(0, 280, 0, 30)
