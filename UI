@@ -710,7 +710,7 @@ OkayBtn.MouseButton1Click:Connect(function()
 end
 
 local main = {}
-function main:AddButton(text,logo, callback)
+function main:Button(text,logo, callback)
     if logo == nil then
         logo = "9906600154"
     end
@@ -733,7 +733,7 @@ function main:AddButton(text,logo, callback)
 
     TextBtn.Name = "TextBtn"
     TextBtn.Parent = Button
-    TextBtn.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    TextBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
     TextBtn.Position = UDim2.new(0, 1, 0, 1)
     TextBtn.Size = UDim2.new(0, 385, 0, 29)
     TextBtn.AutoButtonColor = false
@@ -744,7 +744,7 @@ function main:AddButton(text,logo, callback)
 
     ImageButton.Name = "ImageButton"
     ImageButton.Parent = Button
-    ImageButton.BackgroundColor3 = Color3.fromRGB(255,255,255)
+    ImageButton.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
     ImageButton.BackgroundTransparency = 1.000
     ImageButton.BorderSizePixel = 0
     ImageButton.Position = UDim2.new(0, 350, 0, 6)
@@ -757,7 +757,7 @@ function main:AddButton(text,logo, callback)
 
     Space.Name = "Space"
     Space.Parent = Button
-    Space.BackgroundColor3 = Color3.fromRGB(255,255,255)
+    Space.BackgroundColor3 = Color3.fromRGB(150, 150, 150)
     Space.BackgroundTransparency = 1.000
     Space.Position = UDim2.new(0, 330, 0, 0)
     Space.Size = UDim2.new(0, 15, 0, 30)
@@ -928,11 +928,11 @@ function main:Toggle(TogInfo, logo ,default, callback)
     CheckFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     CheckFrame.BackgroundTransparency = 1.000
     CheckFrame.BorderSizePixel = 0
-    CheckFrame.Size = UDim2.new(0, 387, 0, 30)
+    CheckFrame.Size = UDim2.new(0, 387, 0, 31)
 
     CheckFrame2.Name = "CheckFrame2"
     CheckFrame2.Parent = CheckFrame
-    CheckFrame2.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
+    CheckFrame2.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
     CheckFrame2.BorderSizePixel = 0
     CheckFrame2.Position = UDim2.new(0, 3, 0, 0)
     CheckFrame2.Size = UDim2.new(0, 381, 0, 30)
